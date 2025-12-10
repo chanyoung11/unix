@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>청년 정책 안내</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .policy-card {
+        background: white;
+        padding: 18px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 15px;
+      }
+      .policy-card strong {
+        font-size: 18px;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="nav-title">청년 생활 통합 서비스</div>
+      <div class="nav-links">
+        <a href="index.html">홈</a>
+        <a href="random.php">음식 추천</a>
+        <a href="honeyTip.html">자취 꿀팁</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1 class="section-title">📘 청년 정책 안내</h1>
+
+      <label>카테고리 선택:</label>
+      <select id="categoryFilter">
+        <option value="all">전체</option>
+        <option value="주거">주거</option>
+        <option value="일자리">일자리</option>
+        <option value="참여·소통">참여·소통</option>
+        <option value="교육·자기개발">교육·자기개발</option>
+        <option value="복지">복지</option>
+        <option value="기타">기타</option>
+      </select>
+
+      <div id="list">
+        <a
+          href="https://www.ch2030youth.kr/bbs/board.php?bo_table=notice&wr_id=509"
+          target="_blank"
+          class="policy-link"
+        >
+          <div class="policy-card" data-category="주거">
+            <strong>2025년 청년 단기숙소 지원사업</strong><br />
+            카테고리: 주거<br />
+            면접자 1박 무료, 취업자 최대 3개월 숙소 제공.
+          </div>
+        </a>
+
+        <a
+          href="https://www.ch2030youth.kr/index.php"
+          target="_blank"
+          class="policy-link"
+        >
+          <div class="policy-card" data-category="일자리,참여·소통">
+            <strong>2025 청년성장프로젝트</strong><br />
+            심리회복, 취업불안 감소, 진로 설계 지원.
+          </div>
+        </a>
+
+        <a
+          href="https://www.cheonan.go.kr/go_now/service/policy/view/?policyNo=79"
+          target="_blank"
+          class="policy-link"
+        >
+          <div class="policy-card" data-category="참여·소통,기타">
+            <strong>천안형 청년도전 프로젝트</strong><br />
+            청년 아이디어 사업을 직접 실행하는 공모 사업.
+          </div>
+        </a>
+
+        <a
+          href="https://www.ch2030youth.kr/bbs/board.php?bo_table=notice&wr_id=444"
+          target="_blank"
+          class="policy-link"
+        >
+          <div class="policy-card" data-category="일자리">
+            <strong>2025 청년채용연계 참여자 모집</strong><br />
+            천안 우수기업 채용 연계 + 교육 지원.
+          </div>
+        </a>
+
+        <a href="#" class="policy-link">
+          <div
+            class="policy-card"
+            data-category="일자리,교육·자기개발,복지,기타"
+          >
+            <strong>2025 취업패키지 지원사업</strong>
+          </div>
+        </a>
+
+        <a href="#" class="policy-link">
+          <div class="policy-card" data-category="주거,복지">
+            <strong>청년월세 한시 특별지원</strong><br />
+            월 20만원씩 최대 24개월 지급.
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("categoryFilter")
+        .addEventListener("change", function () {
+          const selected = this.value;
+          const items = document.querySelectorAll(".policy-card");
+
+          items.forEach((item) => {
+            const category = item.getAttribute("data-category");
+            const list = category.split(",");
+            if (selected === "all" || list.includes(selected)) {
+              item.classList.remove("hidden");
+            } else {
+              item.classList.add("hidden");
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
